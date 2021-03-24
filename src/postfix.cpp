@@ -6,9 +6,7 @@
 
 int priority_level(char a) {
   int ascii = (unsigned char)a;
-  if (ascii == 40)
-    return 0;
-  else if (ascii == 41)
+  if (ascii == 41)
     return 1;
   else if (ascii == 43 || ascii == 45)
     return 2;
@@ -37,10 +35,12 @@ std::string infix2postfix(std::string infix) {
         str.push_back(' ');
       }
       stack.pop();
-    } else if (priority_level(stack.get()) < priority_level(infix[i]) || stack.isEmpty()) {
+    } else if (stack.isEmpty() ||
+               priority_level(stack.get()) < priority_level(infix[i])) {
       stack.push(infix[i]);
     } else if (priority_level(stack.get()) >= priority_level(infix[i])) {
-      while (!stack.isEmpty() && priority_level(stack.get()) >= priority_level(infix[i])) {
+      while (!stack.isEmpty() &&
+             priority_level(stack.get()) >= priority_level(infix[i])) {
         str.push_back(stack.pop());
         str.push_back(' ');
       }

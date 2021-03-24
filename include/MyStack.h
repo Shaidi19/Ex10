@@ -30,15 +30,17 @@ class MyStack {
   bool isFull() const {
     if (size_max == size) {
       return 1;
-    } else
+    } else {
       return 0;
+    }
   }
 
   bool isEmpty() const {
     if (size_max == 0) {
       return 1;
-    } else
+    } else {
       return 0;
+    }
   }
 
   T get() const {
@@ -59,8 +61,5 @@ class MyStack {
     }
   }
 };
-
-
-
 
 #endif  // INCLUDE_MYSTACK_H_
