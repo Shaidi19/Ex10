@@ -4,8 +4,8 @@
 #include "postfix.h"
 
 int main() {
-	std::string s1 = "7-2*3";
+    std::string s1 = "2 + 2";
 	std::string s_postfix = infix2postfix(s1);
-	std::cout << s_postfix;  //  723*-
+	std::cout << s_postfix;  
 	return 0;
 }

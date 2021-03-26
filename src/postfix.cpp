@@ -39,7 +39,8 @@ std::string infix2postfix(std::string infix) {
                priority_level(stack.get()) < priority_level(infix[i])) {
       stack.push(infix[i]);
     } else if (priority_level(stack.get()) >= priority_level(infix[i])) {
-      while (!stack.isEmpty() &&
+      
+        while (!stack.isEmpty() &&
              priority_level(stack.get()) >= priority_level(infix[i])) {
         str.push_back(stack.pop());
         str.push_back(' ');
@@ -54,3 +55,4 @@ std::string infix2postfix(std::string infix) {
   str.pop_back();
   return str;
 }
+

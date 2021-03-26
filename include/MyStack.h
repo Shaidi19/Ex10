@@ -16,16 +16,14 @@ class MyStack {
     data = new T[size_max];
   }
 
-  MyStack(const MyStack& new_one) {
-    size = new_one.size;
-    size_max = new_one.size_max;
+  MyStack(const MyStack& new_stack) {
+    size = new_stack.size;
+    size_max = new_stack.size_max;
     data = new T[size_max];
-    for (unsigned i = 0; i < size; i++) data[i] = new_one.data[i];
+    for (unsigned i = 0; i < size; i++) data[i] = new_stack.data[i];
   }
 
-  ~MyStack() {
-    delete[] data;
-  }
+  ~MyStack() { delete[] data; }
 
   bool isFull() const {
     if (size_max == size) {
@@ -36,7 +34,7 @@ class MyStack {
   }
 
   bool isEmpty() const {
-    if (size_max == 0) {
+    if (size == 0) {
       return 1;
     } else {
       return 0;
@@ -44,13 +42,12 @@ class MyStack {
   }
 
   T get() const {
-    if (!isEmpty())
-      return data[size - 1];
+    if (!isEmpty()) return data[size - 1];
   }
 
   T pop() {
     if (!isEmpty()) {
-      size = size-1;
+      size -= 1;
       return data[size];
     }
   }
